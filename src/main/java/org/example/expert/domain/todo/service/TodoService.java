@@ -11,11 +11,17 @@ import org.example.expert.domain.todo.entity.Todo;
 import org.example.expert.domain.todo.repository.TodoRepository;
 import org.example.expert.domain.user.dto.response.UserResponse;
 import org.example.expert.domain.user.entity.User;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -48,10 +54,21 @@ public class TodoService {
         );
     }
 
-    public Page<TodoResponse> getTodos(int page, int size) {
+    // 할일 다건 조회
+    public Page<TodoResponse> getTodos(int page, int size, String weather, Optional<LocalDate> start, Optional<LocalDate> end) {
         Pageable pageable = PageRequest.of(page - 1, size);
 
-        Page<Todo> todos = todoRepository.findAllByOrderByModifiedAtDesc(pageable);
+        // LocalDate 타입으로 받아온 start 를 LocalDateTime 으로 변환 및 미입력시 null 처리
+        LocalDateTime startDateTime = start.
+                map(LocalDate::atStartOfDay).
+                orElse(null);
+
+        // LocalDate 타입으로 받아온 end 를 LocalDateTime 으로 변환 및 미입력시 null 처리
+        LocalDateTime endDateTime = end
+                .map(e -> e.atTime(LocalTime.MAX))  // 해당 날짜의 23:59:59 까지로 설정
+                .orElse(null);
+
+        Page<Todo> todos = todoRepository.findTodosWithConditions(weather, startDateTime, endDateTime, pageable);
 
         return todos.map(todo -> new TodoResponse(
                 todo.getId(),
@@ -63,6 +80,7 @@ public class TodoService {
                 todo.getModifiedAt()
         ));
     }
+
 
     public TodoResponse getTodo(long todoId) {
         Todo todo = todoRepository.findByIdWithUser(todoId)
