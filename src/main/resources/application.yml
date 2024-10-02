@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset : UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: spring-plus
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+file:
+  upload-dir: C:/uploads
+
+jwt:
+  secret:
+    key: ${JWT_SECRET_KEY}
+  admin:
+    token: ${ADMIN_TOKEN}
