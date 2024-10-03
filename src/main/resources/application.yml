@@ -32,5 +32,3 @@ file:
 jwt:
   secret:
     key: ${JWT_SECRET_KEY}
-  admin:
-    token: ${ADMIN_TOKEN}
