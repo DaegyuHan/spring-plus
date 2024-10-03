@@ -21,9 +21,8 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
             "WHERE t.id = :todoId")
     Optional<Todo> findByIdWithUser(@Param("todoId") Long todoId);
 
-    Page<Todo> findAllByWeatherOrderByModifiedAtDesc(String weather, Pageable pageable);
 
-    @Query("SELECT t FROM Todo t " +
+    @Query("SELECT DISTINCT t FROM Todo t JOIN FETCH t.managers JOIN t.comments " +
             "WHERE (:weather IS NULL OR t.weather = :weather) " +
             "AND (:start IS NULL OR t.modifiedAt >= :start) " +
             "AND (:end IS NULL OR t.modifiedAt <= :end)")
