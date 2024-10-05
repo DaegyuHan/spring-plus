@@ -44,7 +44,8 @@ public class User extends Timestamped {
         String roleName = authUser.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
-        return new User(authUser.getUserId(), authUser.getEmail(),authUser.getNickname(), UserRole.of(roleName));
+        long userId = Long.parseLong(authUser.getUserId());
+        return new User(userId, authUser.getEmail(),authUser.getNickname(), UserRole.of(roleName));
     }
 
     public void changePassword(String password) {
