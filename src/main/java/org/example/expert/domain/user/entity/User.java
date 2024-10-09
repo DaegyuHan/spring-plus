@@ -41,9 +41,7 @@ public class User extends Timestamped {
     }
 
     public static User fromAuthUser(AuthUser authUser) {
-        String roleName = authUser.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(","));
+        String roleName = authUser.getAuthorities().iterator().next().getAuthority();
         long userId = Long.parseLong(authUser.getUserId());
         return new User(userId, authUser.getEmail(),authUser.getNickname(), UserRole.of(roleName));
     }
