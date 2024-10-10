@@ -1,13 +1,43 @@
 # 레거시 코드 리팩토링
 ---
-## 리팩토링 기간
+## ⏲리팩토링 기간
 > 기간 2024.09.26 ~ 2024.10.11
 
 # 🚀 LV3-12 AWS 마스터
-### S3 정책
 
-![image](https://github.com/user-attachments/assets/6af4f1f3-ce6a-4b81-910a-a87604e40c01)
+- ⚽ health check
+  
+  ![image](https://github.com/user-attachments/assets/49e9175b-e546-4adb-b374-122437839246)
 
+
+## S3 이미지 업로드, 삭제 및 정책
+
+- ⚽ 이미지 업로드
+  - postman
+
+    ![image](https://github.com/user-attachments/assets/659526ad-d2ee-4869-8dca-5dd1d9b869ff)
+  - aws s3
+    
+    ![image](https://github.com/user-attachments/assets/f7d8b33a-fc24-47df-9f0b-b2478e3e1ff6)
+
+
+- ⚽ 이미지 삭제
+  - postman
+    
+    ![image](https://github.com/user-attachments/assets/283feb1e-8770-452e-81d7-d9c53468d7bf)
+
+
+  - aws s3
+    
+    ![image](https://github.com/user-attachments/assets/a03db3bd-fdde-43e0-b213-8e8a66648739)
+
+
+- ⚽ 정책
+
+  ![image](https://github.com/user-attachments/assets/0d304fd2-fd3d-4368-aa02-61a713af2d2c)
+
+
+---
 
 # 🚀 LV3-13 대용량 데이터 조회
 ## 🍰 개선 방법
