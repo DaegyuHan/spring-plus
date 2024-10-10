@@ -23,14 +23,14 @@
 
 
 
-#### 기존 방식 조회 결과 ( JPA 메서드 ) : 537 ms
+### 기존 방식 조회 결과 ( JPA 메서드 ) : 537 ms
 
 ![image](https://github.com/user-attachments/assets/29990a6f-44ca-4a30-923b-5c3498db10f7)
 
 JPA 메서드를 활용한 기존 방식 그대로 속도를 기록함.
 
 
-#### 1. 출력 필드를 최소화 : 550 ms
+### 1. 출력 필드를 최소화 : 550 ms
 
 ![image](https://github.com/user-attachments/assets/2302a325-68c8-4970-a66d-64e5612d30e2)
 
@@ -38,7 +38,7 @@ JPA 메서드를 활용한 기존 방식 그대로 속도를 기록함.
 
 
 
-#### 2. JQPL 으로 전환 : 479 ms
+### 2. JQPL 으로 전환 : 479 ms
 
 ![image](https://github.com/user-attachments/assets/79088c69-e093-4793-a3b4-ea1d80233276)
 
@@ -46,7 +46,7 @@ JPA 메서드를 활용한 기존 방식 그대로 속도를 기록함.
 
 
 
-#### 3. JQPL 전환 + INDEX 적용 : 11 ms
+### 3. JQPL 전환 + INDEX 적용 : 11 ms
 
 ![image](https://github.com/user-attachments/assets/3e37b869-277c-4714-94cd-1274334ffdc7)
 
