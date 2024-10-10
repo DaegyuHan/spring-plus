@@ -26,9 +26,40 @@ spring:
         use_sql_comments: true
         dialect: org.hibernate.dialect.MySQL8Dialect
 
+s3:
+  bucket: ${AWS_S3_BUCKET}
+  credentials:
+    access-key: ${AWS_ACCESS_KEY}
+    secret-key: ${AWS_SECRET_KEY}
+    region: ${AWS_REGION}
+
+
 file:
   upload-dir: C:/uploads
 
 jwt:
   secret:
     key: ${JWT_SECRET_KEY}
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info  # 필요한 엔드포인트 노출 (health와 info를 포함)
+  endpoint:
+    health:
+      show-details: always  # health 상태에 대한 세부 정보를 항상 표시
+      probes:
+        enabled: true       # 기본적인 시스템 상태(디스크, 메모리 등) 활성화
+      details:
+        enabled-by-default: true
+  health:
+    diskspace:
+      enabled: true         # 디스크 상태 정보 활성화
+      threshold: 10MB       # 디스크 여유 공간이 10MB 이하일 때 경고
+    db:
+      enabled: true         # 데이터베이스 상태 정보 활성화
+    memory:
+      enabled: true         # 메모리 상태 정보 활성화
+

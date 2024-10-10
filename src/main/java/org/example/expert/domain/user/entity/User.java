@@ -25,6 +25,8 @@ public class User extends Timestamped {
     private UserRole userRole;
     // 유저 닉네임
     private String nickname;
+    // 유저 프로필 사진
+    private String profileImageURL = "기본 이미지";
 
     public User(String email, String password, String nickname, UserRole userRole) {
         this.email = email;
@@ -52,5 +54,15 @@ public class User extends Timestamped {
 
     public void updateRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    // 프로필 사진 업로드
+    public void update(String profileImageURL) {
+        this.profileImageURL = profileImageURL;
+    }
+
+    // 프로필 사진 삭제 ( null 로 변경 -> 프론트에서 기본 이미지 같은 형태로 응용 가능 )
+    public void deleteProfileImage() {
+        this.profileImageURL = "기본 이미지";
     }
 }
