@@ -10,11 +10,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
+
+    @GetMapping("/users")
+    public ResponseEntity<List<UserResponse>> getUsersWithNickname(@RequestParam String nickname) {
+        return ResponseEntity.ok(userService.getUsersWithNickname(nickname));
+    }
 
     @GetMapping("/users/{userId}")
     public ResponseEntity<UserResponse> getUser(@PathVariable long userId) {
@@ -25,5 +32,10 @@ public class UserController {
     public void changePassword(@AuthenticationPrincipal AuthUser authUser, @RequestBody UserChangePasswordRequest userChangePasswordRequest) {
         long userId = Long.parseLong(authUser.getUserId());
         userService.changePassword(userId, userChangePasswordRequest);
+    }
+
+    @PostMapping("/pushUsers")
+    public ResponseEntity<String> pushUsers() {
+        return ResponseEntity.ok(userService.pushUsers());
     }
 }
