@@ -5,10 +5,19 @@
 
 # 🚀 LV3-12 AWS 마스터
 
-- ⚽ health check
+## health check
   
-  ![image](https://github.com/user-attachments/assets/49e9175b-e546-4adb-b374-122437839246)
+  ![image](https://github.com/user-attachments/assets/af762217-d7f5-4728-9997-64632e4da54e)
 
+
+## EC2
+
+  ![image](https://github.com/user-attachments/assets/81bafc40-3ee3-4530-8603-27ad1ce75cdf)
+
+
+## RDS
+
+![image](https://github.com/user-attachments/assets/6755757a-73bf-4f3d-8d46-804bfc64bf33)
 
 ## S3 이미지 업로드, 삭제 및 정책
 
