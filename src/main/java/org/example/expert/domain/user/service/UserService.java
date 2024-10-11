@@ -35,7 +35,6 @@ public class UserService {
 
     // S3
     private final AmazonS3Client s3Client;
-
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -196,6 +195,4 @@ public class UserService {
     public static String generateRandomNickname() {
         return UUID.randomUUID().toString().substring(0, 8); // 8자리만 사용
     }
-
-
 }

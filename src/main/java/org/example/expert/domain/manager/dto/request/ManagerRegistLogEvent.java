@@ -1,7 +1,7 @@
 package org.example.expert.domain.manager.dto.request;
 
 import lombok.Getter;
-import org.example.expert.domain.manager.entity.ManagerRegistLogEnum;
+import org.example.expert.domain.manager.enums.ManagerRegistLogEnum;
 
 @Getter
 public class ManagerRegistLogEvent {

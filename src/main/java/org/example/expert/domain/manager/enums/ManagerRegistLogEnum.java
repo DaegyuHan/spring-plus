@@ -1,4 +1,4 @@
-package org.example.expert.domain.manager.entity;
+package org.example.expert.domain.manager.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
