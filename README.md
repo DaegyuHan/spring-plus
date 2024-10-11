@@ -101,6 +101,6 @@ JPQL 전환 후 nickname 에 Index 가 적용된 방식으로 조회했더니 11
 
 ---
 
-# 🚀 트래블 슈팅
+# 💥 트래블 슈팅
 
 https://hanstory33.tistory.com/230
